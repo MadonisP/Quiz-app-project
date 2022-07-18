@@ -23,6 +23,8 @@ li{
 
 .left{
     float: left;
+    font-family: 'McLaren', cursive;
+    text-shadow: 1px 1px #FEFDCA;
 }
 
 .right {
