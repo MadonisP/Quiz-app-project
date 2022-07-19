@@ -1,0 +1,21 @@
+.heroContent{
+    flex: 2;
+    -webkit-box-shadow: -3px 6px 35px 1px rgba(0, 0, 0, 0.31);
+    box-shadow: -3px 6px 35px 1px rgba(0, 0, 0, 0.31);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 80px;
+}
+
+.heroTitle{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color:#AEE1E1;
+ 
+}
+
+.heroDesc{
+    text-align: center;
+    color:#D3E0DC;
+}

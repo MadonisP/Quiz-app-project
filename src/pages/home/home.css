@@ -1,0 +1,8 @@
+body{
+    background-color: #fafafa;
+    background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+}
+
+.home{
+    flex:6;
+}
