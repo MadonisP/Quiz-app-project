@@ -5,17 +5,17 @@ import './register.css'
 const Register = () => {
   return (
     <div className='register'>
-      <div className='wrapper'>
+      <div className='wrapperR'>
         <h1>Create An Account</h1>
         <form className='formRegister'>
-          <input className='inputF1' placeholder='name' />
-          <input className='inputF1' placeholder='last name' />
-          <input className='inputF1' placeholder='username' />
-          <input className='inputF1' placeholder='email' />
-          <input className='inputF1' placeholder='password' />
-          <input className='inputF1' placeholder='confirm password' />
-          <button className='formButton'>Create</button>
-          <p>Do you have an account? <Link to="/login" className='link'>Login</Link></p>
+          <input className='inputFR1' placeholder='name' />
+          <input className='inputFR1' placeholder='last name' />
+          <input className='inputFR1' placeholder='username' />
+          <input className='inputFR1' placeholder='email' />
+          <input className='inputFR1' placeholder='password' />
+          <input className='inputFR1' placeholder='confirm password' />
+          <button className='formRButton'>Create</button>
+          <p>Do you have an account? <Link to="/login" className='rLink'>Login</Link></p>
         </form>
       </div>
     </div>

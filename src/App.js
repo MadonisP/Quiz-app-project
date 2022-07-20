@@ -5,6 +5,7 @@ import './app.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import QuizCategories from "./component/quiz/QuizCategories";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/login' element={<Login />} />
+          <Route exact path='/quiz' element={<QuizCategories />} />
         </Routes>
         <Footer />
       </div>

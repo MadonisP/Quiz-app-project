@@ -13,10 +13,10 @@ const HeroSectionImg = () => {
                 <p className="heroDesc">
                   Train your brain now!
                 </p>
-                <a href="#" class="myButton">Register<br/>Now!</a>
+                <a href="#" className="myButton">Register<br/>Now!</a>
             </div>
             <div className="heroContent">
-                <h2 className="heroTitle" style={{marginLeft:"100px",marginRight:"100px"}}>
+                <h2 className="heroTitle" >
                     Worlds largest quiz web site  And yes! it is free
                 </h2>
                 <p className="heroDesc">

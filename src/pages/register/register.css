@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.wrapper {
+.wrapperR {
     width: 40% ;
     padding: 20px;
     background-color: #ECE2E1;
@@ -19,15 +19,14 @@
     flex-wrap: wrap;
 }
 
-.inputF1 {
-    flex: 1;
+.inputFR1 {
+    flex: 3;
     min-width: 40%;
     margin: 20px 10px 0px 0px;
     padding: 10px;
-
 }
 
-.formButton {
+.formRButton {
     width: 99%;
     border: none;
     padding: 15px 20px;
@@ -42,10 +41,11 @@ h1{
     font-weight: 300;
 }
 
-.link{
+.rLink{
     font-size: 16px !important;
     margin: 0;
     color: blue;
+    cursor: pointer;
 }
 
 p{
