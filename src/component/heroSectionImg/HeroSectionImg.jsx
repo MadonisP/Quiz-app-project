@@ -1,6 +1,6 @@
 import React from 'react'
 import './heroSectionImg.css'
-
+import { Link } from 'react-router-dom'
 
 const HeroSectionImg = () => {
   return (
@@ -13,7 +13,7 @@ const HeroSectionImg = () => {
                 <p className="heroDesc">
                   Train your brain now!
                 </p>
-                <a href="#" className="myButton">Register<br/>Now!</a>
+                <Link to="/register" className="myButton">Register<br/>Now!</Link>
             </div>
             <div className="heroContent">
                 <h2 className="heroTitle" >
