@@ -1,0 +1,53 @@
+.register {
+    width: 100%;
+    height: 100vh;
+    background-color: #fafafa;
+    background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 40% ;
+    padding: 20px;
+    background-color: #ECE2E1;
+}
+
+.formRegister {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inputF1 {
+    flex: 1;
+    min-width: 40%;
+    margin: 20px 10px 0px 0px;
+    padding: 10px;
+
+}
+
+.formButton {
+    width: 99%;
+    border: none;
+    padding: 15px 20px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    margin-top:20px ;
+}
+
+h1{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.link{
+    font-size: 16px !important;
+    margin: 0;
+    color: blue;
+}
+
+p{
+    margin-top: 5px;
+}

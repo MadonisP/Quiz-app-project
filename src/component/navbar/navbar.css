@@ -6,9 +6,8 @@
 .navbar {
     background-color: #FFCFDF;
     width: 100% ;
-    height: 200px;
+    height: 60px;
     overflow: hidden;
-    display: inline-block;
 }
 
 ul {
@@ -16,7 +15,7 @@ ul {
 }
 
 li{
-    padding: 14px 16px;
+    padding: 14px 10px;
     color:#A5DEE5;
     text-align: center;
 }
@@ -27,23 +26,27 @@ li{
     text-shadow: 1px 1px #ECE2E1;
     font-size: 32px !important;
     font-weight: 600;
-    
+    margin-top: 0px;
 }
 
 .right {
     float: right;
     border: #ECE2E1 1px solid;
+    padding: 8px 12px;
     border-radius: 12px;
-    margin: 4px 10px;
+    margin: -30px 10px;
     background-color: #ECE2E1;
     font-size: 20px !important;
+    object-position:auto;
 }
 
 .right2 {
     float: right;
+    padding: 8px 12px;
     border: #ECE2E1 1px solid;
     border-radius: 12px;
-    margin: 4px 10px;
+    margin: -57px 125px;
     background-color: #ECE2E1;
     font-size: 20px !important;
+    object-position:auto;
 }

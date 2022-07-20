@@ -1,9 +1,10 @@
 import Footer from "./component/footer/Footer";
-import HeroSection from "./component/heroSection/HeroSection";
 import Navbar from "./component/navbar/Navbar";
 import Home from "./pages/home/Home";
 import './app.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path='/' element={<Home />} />
+          <Route exact path='/register' element={<Register />} />
+          <Route exact path='/login' element={<Login />} />
         </Routes>
         <Footer />
       </div>
