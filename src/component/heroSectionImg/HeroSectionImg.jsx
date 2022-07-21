@@ -1,8 +1,13 @@
 import React from 'react'
 import './heroSectionImg.css'
 import { Link } from 'react-router-dom'
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const HeroSectionImg = () => {
+
+  const { currentUser } = useContext(AuthContext)
+
   return (
     <div className="heroSectionImg">
        <section>
@@ -12,8 +17,11 @@ const HeroSectionImg = () => {
                 </h2>
                 <p className="heroDesc">
                   Train your brain now!
-                </p>
-                <Link to="/register" className="myButton">Register<br/>Now!</Link>
+                </p>{!currentUser ?(
+                  <Link to="/register" className="myButton">Register<br/>Now!</Link>
+                ):(
+                  <button className='myButton' disabled={true} style={{cursor:"default"}}>Scroll down for<br/>Our products!</button>
+                )}
             </div>
             <div className="heroContent">
                 <h2 className="heroTitle" >

@@ -1,0 +1,37 @@
+.notFound{
+    height: 100vh;
+    flex: 2;
+    -webkit-box-shadow: -3px 6px 35px 1px rgba(0, 0, 0, 0.31);
+    box-shadow: -3px 6px 35px 1px rgba(0, 0, 0, 0.31);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 120px;
+    text-align: center;
+    align-items: center;
+    background-image: url('../../images/notFoundBaby.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.errorTitle{
+    font-size: 96px;
+    font-weight: 600;
+    text-align: center;
+    color:#AEE1E1;
+ 
+}
+
+.errorDesc{
+    font-size: 32px;
+    font-weight: 400;
+    text-align: center;
+    color:#8fe9ce;
+}
+
+.errorLink{
+    font-size: 32px !important;
+    font-weight: 400 !important;  
+    color:#AEE1E1 !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}

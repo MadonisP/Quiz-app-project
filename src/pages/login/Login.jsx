@@ -36,10 +36,10 @@ const Login = () => {
         <div className='login'>
             <div className='wrapperL'>
                 <h1>Sign in</h1>
-                <form className='formLogin'>
-                    <input className='inputFL1' placeholder='username' onChange={e=>setEmail(e.target.value)} required />
-                    <input className='inputFL1' placeholder='password' onChange={e=>setPassword(e.target.value)} required />
-                    <button className='formLButton'>Login</button>
+                <form className='formLogin' onSubmit={handleLogin}>
+                    <input className='inputFL1' type="email" placeholder='username' onChange={e=>setEmail(e.target.value)} required />
+                    <input className='inputFL1' type="password" placeholder='password' onChange={e=>setPassword(e.target.value)} required />
+                    <button className='formLButton' type="submit">Login</button>
                     <Link to="/register" className='lLink'>Create a new account</Link>
                 </form>
             </div>

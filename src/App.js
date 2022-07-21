@@ -7,7 +7,8 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import QuizCategories from "./component/quiz/QuizCategories";
 import { useContext } from "react";
-import {AuthContext} from "./context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
 
@@ -22,11 +23,24 @@ function App() {
       <div className="container">
         <Navbar />
         <Routes>
-          <Route path="/"></Route>
-          <Route index element={<Home />} />
-          <Route exact path='/register' element={<Register />} />
-          <Route exact path='/login' element={<Login />} />
-          <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
+          {!currentUser ? (
+            <>
+              <Route path="/"></Route>
+              <Route index element={<Home />} />
+              <Route exact path='/register' element={<Register />} />
+              <Route exact path='/login' element={<Login />} />
+              <Route path='*' element={<NotFound />} />
+            </>
+          ) : (
+            <>
+              <Route path="/"></Route>
+              <Route index element={<Home />} />
+              <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
+              <Route path='*' element={<NotFound />} />
+            </>
+          )}
+
+
         </Routes>
         <Footer />
       </div>
