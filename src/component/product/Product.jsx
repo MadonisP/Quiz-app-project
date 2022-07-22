@@ -23,7 +23,7 @@ const Product = () => {
       </section>
       <section>
         <div className="productContent">
-        <Link to="/" >
+        <Link to="/questionadd" >
           <h2 className="productTitle" >
             Take an exam
           </h2>
@@ -35,7 +35,7 @@ const Product = () => {
       </section>
       <section>
         <div className="productContent">
-        <Link to="/" >
+        <Link to="/exam" >
           <h2 className="productTitle" >
             Make an exam
           </h2>

@@ -4,7 +4,7 @@ import './register.css'
 import { auth, db } from "../../firebase-config"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc , serverTimestamp } from "firebase/firestore";
-
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
@@ -15,7 +15,7 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
 
-
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
   
@@ -30,6 +30,7 @@ const Register = () => {
         email: email,
         timeStamp: serverTimestamp(),
       });
+      navigate("/login");
     } catch (e) {
       console.error("Error adding document: ", e);
     }

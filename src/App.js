@@ -5,10 +5,12 @@ import './app.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import QuizCategories from "./component/quiz/QuizCategories";
+import ExamMaker from "./pages/examMaker/ExamMaker";
+import QuizCategories from "./pages/quizCategories/QuizCategories";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import NotFound from "./pages/notFound/NotFound";
+import QuestionAdd from "./pages/questionAdd/QuestionAdd";
 
 function App() {
 
@@ -36,6 +38,8 @@ function App() {
               <Route path="/"></Route>
               <Route index element={<Home />} />
               <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
+              <Route exact path='/exam' element={<RequireAuth><ExamMaker /></RequireAuth>} />
+              <Route exact path='/questionadd' element={<RequireAuth><QuestionAdd /></RequireAuth>} />
               <Route path='*' element={<NotFound />} />
             </>
           )}
