@@ -1,13 +1,13 @@
-import { useState,useContext  } from "react";
+import { useState, useContext } from "react";
 import { GameStateContext } from "../helpers/Context"
-import { Questions  } from "../helpers/Questions"
+import { Questions } from "../helpers/Questions"
 
 
 const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
 
-    const { score, setScore, gameState, setGameState } = useContext(
+    const { score, setScore, gameState, setGameState, selection, setSelection } = useContext(
         GameStateContext
     );
 

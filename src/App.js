@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import NotFound from "./pages/notFound/NotFound";
 import QuestionAdd from "./pages/questionAdd/QuestionAdd";
+import SelectExam from "./pages/selectExam/SelectExam";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
               <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
               <Route exact path='/exam' element={<RequireAuth><ExamMaker /></RequireAuth>} />
               <Route exact path='/questionadd' element={<RequireAuth><QuestionAdd /></RequireAuth>} />
+              <Route exact path='/select' element={<RequireAuth><SelectExam /></RequireAuth>} />
               <Route path='*' element={<NotFound />} />
             </>
           )}
