@@ -3,7 +3,7 @@ import {GameStateContext}  from '../helpers/Context';
 import {Questions}  from '../helpers/Questions';
 
 const EndScreen = () => {
-    const { score, setScore, setGameState, userName } = useContext(GameStateContext);
+    const { score, setScore, setGameState } = useContext(GameStateContext);
     
       const restartQuiz = () => {
         setScore(0);
@@ -13,9 +13,8 @@ const EndScreen = () => {
     return (
         <div className="EndScreen">
             <h1>Quiz Finished</h1>
-            <h3>{userName}</h3>
             <h1>
-                {score} / {Questions.length}
+                {score}
             </h1>
             <button onClick={restartQuiz}>Restart Quiz</button>
         </div>

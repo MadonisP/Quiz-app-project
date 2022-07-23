@@ -1,68 +1,85 @@
 import { useState, useContext } from "react";
 import { GameStateContext } from "../helpers/Context"
-import { Questions } from "../helpers/Questions"
-
+import { db } from '../../firebase-config'
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect } from "react";
 
 const Quiz = () => {
+    const { score, setScore, gameState, setGameState, selection, setSelection } = useContext(GameStateContext);
+    const [isLoading, setLoading] = useState(true);
+    const [questions, setQuestions] = useState([]);
+
+    useEffect(() => {
+        deneme();
+    }, []);
+
+    const deneme = async () => {
+        const querySnapshot = await getDocs(collection(db, selection));
+        const newQuestions = querySnapshot.docs.map(doc => doc.data());
+        setQuestions(newQuestions);
+        setLoading(false);
+      }
+
+
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
 
-    const { score, setScore, gameState, setGameState, selection, setSelection } = useContext(
-        GameStateContext
-    );
 
     const chooseOption = (option) => {
         setOptionChosen(option);
     };
 
     const nextQuestion = () => {
-        if (Questions[currentQuestion].asnwer == optionChosen) {
+        if (questions[currentQuestion].answer == optionChosen) {
             setScore(score + 1);
         }
         setCurrentQuestion(currentQuestion + 1);
     };
 
     const finishQuiz = () => {
-        if (Questions[currentQuestion].asnwer == optionChosen) {
+        if (questions[currentQuestion].answer == optionChosen) {
             setScore(score + 1);
         }
         setGameState("finished");
     };
+    if (isLoading) {
+        return <div> Loading</div>
+    }
     return (
         <div className="Quiz">
-            <h1>{Questions[currentQuestion].prompt}</h1>
+            <h1>{questions[currentQuestion].question}</h1>
             <div className="questions">
                 <button
                     onClick={() => {
                         chooseOption("optionA");
                     }}
                 >
-                    {Questions[currentQuestion].optionA}
+                    {questions[currentQuestion].optionA}
                 </button>
                 <button
                     onClick={() => {
                         chooseOption("optionB");
                     }}
                 >
-                    {Questions[currentQuestion].optionB}
+                    {questions[currentQuestion].optionB}
                 </button>
                 <button
                     onClick={() => {
                         chooseOption("optionC");
                     }}
                 >
-                    {Questions[currentQuestion].optionC}
+                    {questions[currentQuestion].optionC}
                 </button>
                 <button
                     onClick={() => {
                         chooseOption("optionD");
                     }}
                 >
-                    {Questions[currentQuestion].optionD}
+                    {questions[currentQuestion].optionD}
                 </button>
             </div>
 
-            {currentQuestion == Questions.length - 1 ? (
+            {currentQuestion == questions.length - 1 ? (
                 <button onClick={finishQuiz} id="nextQuestion">
                     Finish Quiz
                 </button>
@@ -71,6 +88,7 @@ const Quiz = () => {
                     Next Question
                 </button>
             )}
+
         </div>
     )
 }

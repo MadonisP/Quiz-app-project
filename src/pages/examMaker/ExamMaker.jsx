@@ -4,13 +4,14 @@ import Menu from '../../component/ownExam/Menu'
 import EndScreen from '../../component/ownExam/EndScreen'
 import { GameStateContext } from '../../component/helpers/Context'
 import SelectExam from "../selectExam/SelectExam";
+import './examMaker.css'
 
 const ExamMaker = () => {
 
   const [gameState, setGameState] = useState("section");
-  const [userName, setUserName] = useState("");
   const [score, setScore] = useState(0);
   const [selection, setSelection] = useState("");
+  const [question, setQuestion] = useState([]);
 
   return (
     <div className="examMaker">
@@ -19,12 +20,12 @@ const ExamMaker = () => {
         value={{
           gameState,
           setGameState,
-          userName,
-          setUserName,
           score,
           setScore,
           selection,
-          setSelection
+          setSelection,
+          question,
+          setQuestion
         }}
       >
         {gameState === "section" && <SelectExam />}
