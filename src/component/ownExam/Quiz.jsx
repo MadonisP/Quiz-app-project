@@ -10,10 +10,10 @@ const Quiz = () => {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        deneme();
+        myQuestions();
     }, []);
 
-    const deneme = async () => {
+    const myQuestions = async () => {
         const querySnapshot = await getDocs(collection(db, selection));
         const newQuestions = querySnapshot.docs.map(doc => doc.data());
         setQuestions(newQuestions);
@@ -43,10 +43,10 @@ const Quiz = () => {
         setGameState("finished");
     };
     if (isLoading) {
-        return <div> Loading</div>
+        return <div className="loader"></div>
     }
     return (
-        <div className="Quiz">
+        <div className="quiz">
             <h1>{questions[currentQuestion].question}</h1>
             <div className="questions">
                 <button

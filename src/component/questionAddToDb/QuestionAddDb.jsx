@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import './questionAddDb.css'
 import { doc, setDoc } from "firebase/firestore";
 import { db } from '../../firebase-config'
@@ -20,9 +20,6 @@ const QuestionDddDb = () => {
 
   const { currentUser } = useContext(AuthContext);
 
-  useEffect(() => {
-    console.log(currentUser.uid)
-  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();

@@ -25,12 +25,11 @@ const Navbar = () => {
         {!currentUser ? (
           <>
             <RequireAuth><li><Link to="/login" className='right'>Login</Link></li></RequireAuth>
-            <li><Link to="/about" className='right2'>About</Link></li>
           </>
         ) : (
           <>
             <li><Link to="/" className="right" onClick={handleLogout}>Quit</Link></li>
-            <li><Link to="/about" className='right2'>About</Link></li>
+            <li><Link to="/table" className='right2'>Table</Link></li>
           </>
         )}
       </ul>

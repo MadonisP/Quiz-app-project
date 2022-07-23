@@ -15,7 +15,7 @@ const ExamMaker = () => {
 
   return (
     <div className="examMaker">
-      <h1>Quiz App</h1>
+      <h1 style={{fontFamily: 'McLaren'}}>Quizle</h1>
       <GameStateContext.Provider
         value={{
           gameState,

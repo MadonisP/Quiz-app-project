@@ -5,11 +5,11 @@ const Menu = () => {
     const { gameState, setGameState} = useContext(GameStateContext);
 
         return (
-            <div className="Menu">
+            <div className="menu">
                 <button
                     onClick={() => { setGameState("playing");}}
                 >
-                    Start Quiz<br /><span style={{ fontSize: "8px" }}>(your time will start when clicked)</span>
+                    Start Quiz<br /><span style={{ fontSize: "16px" }}>(your time will start when clicked)</span>
                 </button>
             </div>
         )
