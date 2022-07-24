@@ -18,6 +18,7 @@ const EndScreen = () => {
       await setDoc(doc(db, selection+ " score", currentUser.email), {
         score: score,
         mail: currentUser.email,
+        uid: currentUser.uid
       });
     }
     catch (e) {

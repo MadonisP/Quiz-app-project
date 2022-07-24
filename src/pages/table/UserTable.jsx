@@ -9,28 +9,23 @@ import Paper from '@mui/material/Paper';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../../firebase-config'
 import { AuthContext } from '../../context/AuthContext'
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const UserTable = () => {
 
-    const [currentData, setCurrentData] = useState(0);
     const [findQuestion, setFindQuestion] = useState("");
     const [userDatas, setUserDatas] = useState([]);
     const [wait, setWait] = useState(true);
 
     const { currentUser } = useContext(AuthContext)
-    
 
-    useEffect(() => {
-        myQuestions();
-        
-    }, []);
 
     const myQuestions = async () => {
         const querySnapshot = await getDocs(collection(db, currentUser.uid + " " + findQuestion + " score"));
         const newQuestions = querySnapshot.docs.map(doc => doc.data());
         setUserDatas(newQuestions);
-    }   
+        setWait(false);
+    }
 
     if (wait) {
         return (
@@ -38,12 +33,13 @@ const UserTable = () => {
                 <div className='questionWrapper'>
                     <label>enter your exam name</label>
                     <input className='inputFQBig' type="text" placeholder='Exam name:' onChange={(e) => setFindQuestion(e.target.value)} required />
-                    <button className='formQButton' type="submit" onClick={() => { setWait(false); }}>Begin</button>
+                    <button className='formQButton' type="submit" onClick={myQuestions}>Begin</button>
                 </div>
             </div>
         )
     }
     return (
+        <>
         <TableContainer component={Paper} style={{ height: "100vh" }}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
@@ -56,20 +52,21 @@ const UserTable = () => {
                 </TableHead>
                 <TableBody>
                     {userDatas.map((data) => (
-                        
                         <TableRow
-                            key={data[currentData].email}
+                            key={data.mail}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">{findQuestion}</TableCell>
-                            <TableCell align="right">{data[currentData].score}</TableCell>
-                            <TableCell align="right">{data[currentData].mail} {setCurrentData(currentData + 1)}</TableCell>
-                            <TableCell align="right">{currentUser.uid} (pass this id to url ex: localhost:3000/"youridHERE")</TableCell>
+                            <TableCell align="right">{data.score}</TableCell>
+                            <TableCell align="right">{data.mail}</TableCell>
+                            <TableCell align="right">{data.uid} (pass this id to url ex: localhost:3000/"idHere")</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
         </TableContainer>
+        <button className='formQButton' style={{marginBottom:"0px"}}><Link to={`/user/${currentUser.uid}`}>My Profile</Link></button>
+        </>
     )
 }
 

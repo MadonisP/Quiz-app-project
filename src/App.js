@@ -12,6 +12,7 @@ import { AuthContext } from "./context/AuthContext";
 import NotFound from "./pages/notFound/NotFound";
 import QuestionAdd from "./pages/questionAdd/QuestionAdd";
 import UserTable from "./pages/table/UserTable";
+import User from "./pages/userPage/User";
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
               <Route exact path='/exam' element={<RequireAuth><ExamMaker /></RequireAuth>} />
               <Route exact path='/questionadd' element={<RequireAuth><QuestionAdd /></RequireAuth>} />
               <Route exact path='/table' element={<RequireAuth><UserTable /></RequireAuth>} />
+              <Route exact path='/user/:id' element={<RequireAuth><User/></RequireAuth>} />
               <Route path='*' element={<NotFound />} />
             </>
           )}

@@ -1,0 +1,58 @@
+.user{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+}
+
+.userShow {
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    width: 30%;
+  }
+
+  .userShowTop {
+    display: flex;
+    align-items: center;
+  }
+
+  .userShowTopTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .userShowUsername {
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .userShowUserTitle {
+    font-weight: 300;
+  }
+
+  .userShowBottom{
+    margin-top: 20px;
+}
+
+.userShowTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #AEE1E1;
+}
+
+.userShowInfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+
+.userShowIcon{
+    font-size: 16px !important;
+}
+
+.userShowInfoTitle{
+    margin-left: 10px;
+}
