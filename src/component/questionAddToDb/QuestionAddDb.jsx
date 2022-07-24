@@ -24,7 +24,7 @@ const QuestionDddDb = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await setDoc(doc(db, currentUser.uid+" "+qCollectionName, qName), {
+      await setDoc(doc(db, currentUser.uid + " " + qName, qName), {
         question: question,
         optionA: optionA,
         optionB: optionB,
@@ -44,7 +44,6 @@ const QuestionDddDb = () => {
       <div className='questionWrapper'>
         <h1>Add a question</h1>
         <form className='formQuestion' onSubmit={handleLogin}>
-          <input className='inputFQBig' type="text" placeholder='Quiz collection name:' onChange={e => setQCollectionName(e.target.value)} required /><br />
           <input className='inputFQBig' type="text" placeholder='Quiz name:' onChange={e => setQName(e.target.value)} required /><br />
           <input className='inputFQBig' type="text" placeholder='Question:' onChange={e => setQuestion(e.target.value)} required /><br />
           <input className='inputFQBig' type="text" placeholder='optionA:' onChange={e => setOptionA(e.target.value)} required />
@@ -54,7 +53,7 @@ const QuestionDddDb = () => {
           <input className='inputFQBig' type="text" placeholder='Correct option:(example: optionC)' onChange={e => setAnswer(e.target.value)} required />
           <button className='formQButton' type="submit">Create</button>
         </form>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </div>
   )

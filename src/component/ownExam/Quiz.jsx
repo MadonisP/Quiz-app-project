@@ -1,10 +1,13 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffectOnce } from "react";
 import { GameStateContext } from "../helpers/Context"
 import { db } from '../../firebase-config'
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect } from "react";
+import Countdown from "react-countdown";
 
 const Quiz = () => {
+    const ref = useRef(null);
+
     const { score, setScore, gameState, setGameState, selection, setSelection } = useContext(GameStateContext);
     const [isLoading, setLoading] = useState(true);
     const [questions, setQuestions] = useState([]);
@@ -18,7 +21,13 @@ const Quiz = () => {
         const newQuestions = querySnapshot.docs.map(doc => doc.data());
         setQuestions(newQuestions);
         setLoading(false);
-      }
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setGameState("finished");
+        }, 12000);
+    }, []);
 
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -45,7 +54,7 @@ const Quiz = () => {
     if (isLoading) {
         return <div className="loader"></div>
     }
-    return (
+    return (<><Countdown date={Date.now() + 12000} />
         <div className="quiz">
             <h1>{questions[currentQuestion].question}</h1>
             <div className="questions">
@@ -80,16 +89,21 @@ const Quiz = () => {
             </div>
 
             {currentQuestion == questions.length - 1 ? (
-                <button onClick={finishQuiz} id="nextQuestion">
-                    Finish Quiz
-                </button>
+                <>
+                    <button ref={ref} onClick={() => { finishQuiz(); }} >
+                        Finish Quiz
+                    </button>
+                </>
             ) : (
-                <button onClick={nextQuestion} id="nextQuestion">
-                    Next Question
-                </button>
+                <>
+                    <button ref={ref} onClick={() => { nextQuestion(); }} >
+                        Next Question
+                    </button>
+                </>
             )}
 
         </div>
+    </>
     )
 }
 
