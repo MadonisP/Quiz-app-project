@@ -1,10 +1,11 @@
-import { useState,useMemo, } from "react";
+import { useState, useMemo, } from "react";
 import Quiz from '../../component/ownExam/Quiz'
 import Menu from '../../component/ownExam/Menu'
 import EndScreen from '../../component/ownExam/EndScreen'
 import { GameStateContext } from '../../component/helpers/Context'
 import SelectExam from "../selectExam/SelectExam";
 import './examMaker.css'
+import Countdown from "react-countdown";
 
 const ExamMaker = () => {
 
@@ -15,7 +16,7 @@ const ExamMaker = () => {
 
   return (
     <div className="examMaker">
-      <h1 style={{fontFamily: 'McLaren'}}>Quizle</h1>
+      <h1 style={{ fontFamily: 'McLaren' }}>Quizle {gameState === "playing" && <Countdown date={Date.now() + 1200000} />}</h1>
       <GameStateContext.Provider
         value={{
           gameState,

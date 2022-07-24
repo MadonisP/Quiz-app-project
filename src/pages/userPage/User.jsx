@@ -53,7 +53,7 @@ const User = () => {
                     </div>
                     <div className="userShowInfo">
                         <PermIdentity className="userShowIcon" />
-                        <span className="userShowInfoTitle"></span>
+                        <span className="userShowInfoTitle">{userCollection.id}</span>
                     </div>
                     <span className="userShowTitle">Contact Details</span>
                     <div className="userShowInfo">

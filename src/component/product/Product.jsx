@@ -16,7 +16,7 @@ const Product = () => {
               QQ
             </h2>
             <p className="productDesc">
-              QQ means is "Quick Quiz" you can select category, difficulty, number of question and you are ready to practice
+              QQ means is "Quick Quiz" you <br/>can select category, difficulty, number<br/> of question and you are ready to practice
             </p>
           </Link>
         </div>
@@ -25,10 +25,10 @@ const Product = () => {
         <div className="productContent">
         <Link to="/questionadd" >
           <h2 className="productTitle" >
-            Take an exam
+            Make an exam
           </h2>
           <p className="productDesc">
-            after you logged in you can press button and after write your pass you can make ur online exam
+            After you logged in you can create <br/>exams and add questions on them also<br/> we have no question limit 
           </p>
           </Link>
         </div>
@@ -37,10 +37,10 @@ const Product = () => {
         <div className="productContent">
         <Link to="/exam" >
           <h2 className="productTitle" >
-            Make an exam
+            Take an exam
           </h2>
           <p className="productDesc">
-            come upload your questions then share your pass and make your exam
+            After you logged in you can take exams<br/> and start solve
           </p>
           </Link>
         </div>

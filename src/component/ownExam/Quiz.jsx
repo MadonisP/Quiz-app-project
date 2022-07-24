@@ -14,6 +14,7 @@ const Quiz = () => {
 
     useEffect(() => {
         myQuestions();
+
     }, []);
 
     const myQuestions = async () => {
@@ -26,8 +27,9 @@ const Quiz = () => {
     useEffect(() => {
         setTimeout(() => {
             setGameState("finished");
-        }, 12000);
+        }, 1200000);
     }, []);
+
 
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,7 +56,7 @@ const Quiz = () => {
     if (isLoading) {
         return <div className="loader"></div>
     }
-    return (<><Countdown date={Date.now() + 12000} />
+    return (
         <div className="quiz">
             <h1>{questions[currentQuestion].question}</h1>
             <div className="questions">
@@ -103,7 +105,7 @@ const Quiz = () => {
             )}
 
         </div>
-    </>
+
     )
 }
 
