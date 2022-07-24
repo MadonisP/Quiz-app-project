@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from '../../firebase-config'
-import { PermIdentity, CalendarToday, MailOutline, LocationSearching, PhoneAndroid } from '@mui/icons-material';
+import { PermIdentity, MailOutline,  } from '@mui/icons-material';
+import {AuthContext} from  '../../context/AuthContext'
 import './user.css'
 
 const User = () => {
@@ -12,6 +13,9 @@ const User = () => {
 
     const [userCollection, setUserCollection] = useState();
     const [loading, setLoading] = useState(true);
+
+    const { currentUser } = useContext(AuthContext)
+
 
     useEffect(() => {
         getData();
@@ -31,7 +35,7 @@ const User = () => {
         }
     }
     if(loading){
-        return <div className="loader" style={{height:"100vh", display:"flex"}}></div>
+        return <div className="loader" style={{display:"flex"}}></div>
     }
     return (
         <div className="user">
@@ -46,6 +50,10 @@ const User = () => {
                     <div className="userShowInfo">
                         <PermIdentity className="userShowIcon" />
                         <span className="userShowInfoTitle">{userCollection.username}</span>
+                    </div>
+                    <div className="userShowInfo">
+                        <PermIdentity className="userShowIcon" />
+                        <span className="userShowInfoTitle"></span>
                     </div>
                     <span className="userShowTitle">Contact Details</span>
                     <div className="userShowInfo">

@@ -21,7 +21,7 @@ const UserTable = () => {
 
 
     const myQuestions = async () => {
-        const querySnapshot = await getDocs(collection(db, currentUser.uid + " " + findQuestion + " score"));
+        const querySnapshot = await getDocs(collection(db, findQuestion + " score"));
         const newQuestions = querySnapshot.docs.map(doc => doc.data());
         setUserDatas(newQuestions);
         setWait(false);
@@ -32,7 +32,7 @@ const UserTable = () => {
             <div className='qAddDb'>
                 <div className='questionWrapper'>
                     <label>enter your exam name</label>
-                    <input className='inputFQBig' type="text" placeholder='Exam name:' onChange={(e) => setFindQuestion(e.target.value)} required />
+                    <input className='inputFQBig' type="text" placeholder='Enter exam name id ex: HtPFYohOSChrWd6iuVNMTpVOeon1 vize' onChange={(e) => setFindQuestion(e.target.value)} required />
                     <button className='formQButton' type="submit" onClick={myQuestions}>Begin</button>
                 </div>
             </div>
