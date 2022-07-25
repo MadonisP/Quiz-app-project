@@ -45,7 +45,7 @@ const Menu = () => {
                 <button
                     onClick={() => { setGameState("playing"); }}
                 >
-                    Start Quiz<br /><span style={{ fontSize: "16px" }}>(your time will start when clicked)</span>
+                    Start Quiz<br /><span style={{ fontSize: "16px" }}>(your time will start when clicked "20 min")</span>
                 </button>
             </div>
 

@@ -24,7 +24,7 @@ const QuestionDddDb = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await setDoc(doc(db, currentUser.uid + " " + qName, qName), {
+      await setDoc(doc(db, currentUser.uid + " " + qName, question), {
         question: question,
         optionA: optionA,
         optionB: optionB,
@@ -46,10 +46,10 @@ const QuestionDddDb = () => {
         <form className='formQuestion' onSubmit={handleLogin}>
           <input className='inputFQBig' type="text" placeholder='Quiz name:' onChange={e => setQName(e.target.value)} required /><br />
           <input className='inputFQBig' type="text" placeholder='Question:' onChange={e => setQuestion(e.target.value)} required /><br />
-          <input className='inputFQBig' type="text" placeholder='optionA:' onChange={e => setOptionA(e.target.value)} required />
-          <input className='inputFQBig' type="text" placeholder='optionB:' onChange={e => setOptionB(e.target.value)} required />
-          <input className='inputFQBig' type="text" placeholder='optionC(if it is true false question use "-"):' onChange={e => setOptionC(e.target.value)} required />
-          <input className='inputFQBig' type="text" placeholder='optionD(if it is true false question use "-"):' onChange={e => setOptionD(e.target.value)} required />
+          <input className='inputFQBig' type="text" placeholder='A:' onChange={e => setOptionA(e.target.value)} required />
+          <input className='inputFQBig' type="text" placeholder='B:' onChange={e => setOptionB(e.target.value)} required />
+          <input className='inputFQBig' type="text" placeholder='C(if it is true false question use "-"):' onChange={e => setOptionC(e.target.value)} required />
+          <input className='inputFQBig' type="text" placeholder='D(if it is true false question use "-"):' onChange={e => setOptionD(e.target.value)} required />
           <input className='inputFQBig' type="text" placeholder='Correct option:(example: optionC)' onChange={e => setAnswer(e.target.value)} required />
           <button className='formQButton' type="submit">Create</button>
         </form>

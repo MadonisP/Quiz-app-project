@@ -31,7 +31,7 @@ const UserTable = () => {
         return (
             <div className='qAddDb'>
                 <div className='questionWrapper'>
-                    <label>enter your exam name</label>
+                    <label>Enter your exam name</label>
                     <input className='inputFQBig' type="text" placeholder='Enter exam name id ex: HtPFYohOSChrWd6iuVNMTpVOeon1 vize' onChange={(e) => setFindQuestion(e.target.value)} required />
                     <button className='formQButton' type="submit" onClick={myQuestions}>Begin</button>
                 </div>
@@ -47,7 +47,7 @@ const UserTable = () => {
                         <TableCell style={{ fontWeight: "600" }}>Exam name</TableCell>
                         <TableCell align="right" style={{ fontWeight: "600" }}>Question scores </TableCell>
                         <TableCell align="right" style={{ fontWeight: "600" }}>emails</TableCell>
-                        <TableCell align="right" style={{ fontWeight: "600" }}>Exam link</TableCell>
+                        <TableCell align="right" style={{ fontWeight: "600" }}>User link</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
