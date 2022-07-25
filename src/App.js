@@ -27,28 +27,16 @@ function App() {
       <div className="container">
         <Navbar />
         <Routes>
-          {!currentUser ? (
-            <>
               <Route path="/"></Route>
               <Route index element={<Home />} />
               <Route exact path='/register' element={<Register />} />
               <Route exact path='/login' element={<Login />} />
-              <Route path='*' element={<NotFound />} />
-            </>
-          ) : (
-            <>
-              <Route path="/"></Route>
-              <Route index element={<Home />} />
-              <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
               <Route exact path='/exam' element={<RequireAuth><ExamMaker /></RequireAuth>} />
+              <Route exact path='/quiz' element={<RequireAuth><QuizCategories /></RequireAuth>} />
               <Route exact path='/questionadd' element={<RequireAuth><QuestionAdd /></RequireAuth>} />
               <Route exact path='/table' element={<RequireAuth><UserTable /></RequireAuth>} />
-              <Route exact path='/user/:id' element={<RequireAuth><User/></RequireAuth>} />
+              <Route exact path='/user/:id' element={<RequireAuth><User /></RequireAuth>} />
               <Route path='*' element={<NotFound />} />
-            </>
-          )}
-
-
         </Routes>
         <Footer />
       </div>
