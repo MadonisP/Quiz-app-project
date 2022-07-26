@@ -10,13 +10,13 @@
     width: 100%;
     height: 60px;
     background-color: #FFCFDF;
-    color: #A5DEE5;
+    color: #6acccc;
     text-align: center;
 }
 
 a{
     border: #FEFDCA 1px thick;
-    color: #A5DEE5;
+    color: #6acccc;
     text-decoration: none;
     font-size: 2.7rem;
     font-weight: 400;
