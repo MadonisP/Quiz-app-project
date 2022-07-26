@@ -18,6 +18,7 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
 
+
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {

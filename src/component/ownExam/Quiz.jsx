@@ -1,9 +1,8 @@
 import { useState, useContext, useRef, useEffectOnce } from "react";
 import { GameStateContext } from "../helpers/Context"
 import { db } from '../../firebase-config'
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { useEffect } from "react";
-import Countdown from "react-countdown";
 
 const Quiz = () => {
     const ref = useRef(null);
@@ -11,26 +10,32 @@ const Quiz = () => {
     const { score, setScore, gameState, setGameState, selection, setSelection } = useContext(GameStateContext);
     const [isLoading, setLoading] = useState(true);
     const [questions, setQuestions] = useState([]);
+    const [qTime, setQTime] = useState("20");
 
     useEffect(() => {
         myQuestions();
-
     }, []);
 
     const myQuestions = async () => {
+        const docRef = doc(db, selection, "zzztimer");
+        const docSnap = await getDoc(docRef);
         const querySnapshot = await getDocs(collection(db, selection));
         const newQuestions = querySnapshot.docs.map(doc => doc.data());
+
         setQuestions(newQuestions);
-        setLoading(false);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", (docSnap.data().time)*60);
+            setQTime(docSnap.data());
+            setLoading(false);
+            setTimeout(() => {
+                setGameState("finished");
+            }, ((docSnap.data().time)*60)+"000");
+        } else {
+            console.log("No such document!");
+            setLoading(false);
+        }
     }
-
-    useEffect(() => {
-        setTimeout(() => {
-            setGameState("finished");
-        }, 1200000);
-    }, []);
-
-
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("");
@@ -90,7 +95,7 @@ const Quiz = () => {
                 </button>
             </div>
 
-            {currentQuestion == questions.length - 1 ? (
+            {currentQuestion == questions.length - 2 ? (
                 <>
                     <button ref={ref} onClick={() => { finishQuiz(); }} >
                         Finish Quiz

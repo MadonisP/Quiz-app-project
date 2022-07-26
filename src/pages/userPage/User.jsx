@@ -22,15 +22,12 @@ const User = () => {
     }, [])
 
     const getData = async() => {
-        console.log(id.id)
         const docRef = doc(db, "users", id.id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             setLoading(false);
-            console.log("Document data:", docSnap.data());
             setUserCollection(docSnap.data());
         } else {
-            console.log("No such document!");
             setLoading(false);
         }
     }
