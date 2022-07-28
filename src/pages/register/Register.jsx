@@ -6,10 +6,13 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../../context/AuthContext'
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
 
   const { currentUser } = useContext(AuthContext);
+
+  const notify = () => toast.info("we are checking your information");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");//google firebase otomatik bir şekilde şifrelediği için bir şifreleme kullanmadım passworda
@@ -18,7 +21,6 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [cPassword, setCPassword] = useState("");
 
-
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -26,7 +28,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-
+      notify();
       await setDoc(doc(db, "users", res.user.uid), {
         id: res.user.uid,
         first: name,
@@ -63,6 +65,7 @@ const Register = () => {
             </>
           )}
           <p>Do you have an account? <Link to="/login" className='rLink'>Login</Link></p>
+          <ToastContainer />
         </form>
       </div>
     </div>
